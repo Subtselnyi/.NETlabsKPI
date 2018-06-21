@@ -1,0 +1,23 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Text;
+
+namespace LogicZaliznitsya.BLL.DTO
+{
+    public class TrainDetailDTO
+    {
+        public int Id { get; set; }
+
+        public string Train_Name { get; set; }
+
+        public string From_City { get; set; }
+
+        public string To_City { get; set; }
+
+        public DateTime DepartureDate { get; set; }
+
+        public DateTime ArrivalDate { get; set; }
+
+        public string Train_Desc { get; set; }
+    }
+}

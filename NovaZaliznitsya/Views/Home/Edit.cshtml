@@ -1,0 +1,64 @@
+﻿@model NovaZaliznitsya.Models.TrainViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>TrainViewModel</h4>
+        <hr />
+        <input type="hidden" name="Id" value="@Model.Id" />
+
+        <div class="form-group">
+            <label>Назва потягу</label>
+            <input type="text" name="Train_Name" value="@Model.Train_Name" />
+        </div>
+
+        <div class="form-group">
+            <label>Опис Потягу</label>
+            <input type="text" name="Train_Desc" value="@Model.Train_Desc" />
+        </div>
+
+        <div class="form-group">
+            <label>Станція відправлення</label>
+            <input type="text" name="From_City" value="@Model.From_City" />
+        </div>
+
+        <div class="form-group">
+            <label>Станція прибуття</label>
+            <input type="text" name="To_City" value="@Model.To_City" />
+        </div>
+
+        <div class="form-group">
+            <label>Час відправлення</label>
+            <input type="datetime" name="ArrivalDate" value="@Model.ArrivalDate" />
+        </div>
+
+        <div class="form-group">
+            <label>Час прибуття</label>
+            <input type="datetime" name="DepartureDate" value="@Model.DepartureDate" />
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

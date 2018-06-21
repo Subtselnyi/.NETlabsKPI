@@ -1,0 +1,40 @@
+﻿@model NovaZaliznitsya.Models.CarriageViewModel
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>CarriageViewModel</h4>
+        <hr />
+        <input type="hidden" name="Id" value="@Model.Id" />
+        <input type="hidden" name="Train_Id" value="@Model.Train_Id" />
+
+        <div class="form-group">
+            <label>Опис Вагону</label>
+            <input type="text" name="Carriage_Desc" value="@Model.Carriage_Desc" />
+            </div>
+        
+
+        <div class="form-group">
+            <label>Кількість місць</label>
+            <input type="text" name="Amount" value="@Model.Amount" />
+            
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "ViewCarriages", "Carriage", new { id = Model.Train_Id, t_name = ViewBag.Train_Name }, null)
+</div>

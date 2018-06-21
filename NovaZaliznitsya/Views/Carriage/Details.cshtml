@@ -1,0 +1,45 @@
+﻿@model NovaZaliznitsya.Models.CarriageViewModel
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Train @Html.Raw(ViewBag.Train_Name)</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Carriage_Desc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Carriage_Desc)
+        </dd>
+
+        <dt>
+            Total places
+        </dt>
+
+        <dd>
+             @Html.DisplayFor(model => model.Amount)
+        </dd>
+
+
+        <dt>
+            Available places
+        </dt>
+
+        <dd>
+            @Html.Raw(Model.Amount - ViewBag.Bookings.Count)
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @Html.ActionLink("Забронировать место", "Book", new { id = Model.Id  }) |
+    @Html.ActionLink("Back to List", "ViewCarriages", "Carriage", new { id = ViewBag.train_Id, t_name = ViewBag.Train_Name }, null)
+</p>
